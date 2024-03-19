@@ -1,13 +1,18 @@
 { inputs, ... }:
 let
   Inextricables = with inputs.self.nixosModules;
-    [ inextricables-home-manager-install ];
+    [
+      inextricables-home-manager-install
+      inextricables-filesystems
+      inextricables-nix-nixpkgs
+    ];
   foreignInextricables = with inputs; [
+    disko.nixosModules.disko
+    impermanence.nixosModules.impermanence
     home-manager.nixosModules.home-manager
     sops-nix.nixosModules.sops
-    impermanence.nixosModules.impermanence
   ];
-  nixosSystemWithDefaults = args:
+  systemGenesis = args:
     (inputs.nixpkgs.lib.nixosSystem ((builtins.removeAttrs args [ "hostName" ])
       // {
         specialArgs = { inherit inputs; } // args.specialArgs or { };
@@ -17,9 +22,10 @@ let
       }));
 in {
   flake.nixosConfigurations = {
-    failbox = nixosSystemWithDefaults {
+    failbox = systemGenesis {
       system = "x86_64-linux";
       hostName = "failbox";
+      modules = [ ./failbox/disks/a.nix ];
     };
   };
 }

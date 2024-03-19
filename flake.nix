@@ -13,8 +13,8 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    impermanance.url = "github:nix-community/impermanence";
   };
-
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
