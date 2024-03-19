@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-{
+{ config, pkgs, ... }: {
   home-manager = {
     useGlobalPkgs = true;
     extraSpecialArgs = { inherit inputs; };
@@ -8,7 +7,7 @@
       home = {
         username = "mcsimw";
         homeDirectory = "/home/mcsimw";
-        stateVersion = "24.05"l
+        stateVersion = "24.05";
       };
     };
   };
