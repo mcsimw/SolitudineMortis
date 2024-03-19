@@ -2,7 +2,7 @@
 let
   Inextricables = with inputs.self.nixosModules;
     [
-      inextricables-home-manager-install
+      inextricables-installhomemanager
       inextricables-filesystems
       inextricables-nix-nixpkgs
     ];
