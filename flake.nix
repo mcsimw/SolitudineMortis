@@ -10,8 +10,8 @@
       systems = [ "x86_64-linux" ];
 
       imports = [
-        ./compootuers/fook.nix
-        ./inextricables/fook.nix
+        ./compootuers/flook.nix
+        ./inextricables/flook.nix
       ];
     };
 }
