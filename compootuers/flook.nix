@@ -1,17 +1,14 @@
 { inputs, ... }:
 let
+  foreignInextricables = [
+    inputs.disko.nixosModules.disko
+    inputs.home-manager.nixosModules.home-manager
+  ];
   Inextricables = with inputs.self.nixosModules;
     [
-      inextricables-installhomemanager
       inextricables-filesystems
       inextricables-nix-nixpkgs
     ];
-  foreignInextricables = with inputs; [
-    disko.nixosModules.disko
-    impermanence.nixosModules.impermanence
-    home-manager.nixosModules.home-manager
-    sops-nix.nixosModules.sops
-  ];
   systemGenesis = args:
     (inputs.nixpkgs.lib.nixosSystem ((builtins.removeAttrs args [ "hostName" ])
       // {

@@ -4,6 +4,7 @@
 
   boot.initrd.availableKernelModules = [ "ata_piix" "ahci" "sd_mod" "sr_mod" ];
   networking.useDHCP = lib.mkDefault true;
+  networking.hostID = "b5fe483b";
 
   virtualisation.virtualbox.guest.enable = true;
 

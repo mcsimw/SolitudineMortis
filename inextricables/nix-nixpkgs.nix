@@ -2,7 +2,7 @@
 { pkgs, lib, config, ... }: {
   nix = {
     package = pkgs.nixUnstable;
-    registery.nixpkgs.flake = inputs.nixpkgs;
+    registry.nixpkgs.flake = inputs.nixpkgs;
     nixPath = lib.singleton config.nix.settings.nix-path;
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
