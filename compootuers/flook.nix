@@ -8,6 +8,7 @@ let
     [
       inextricables-filesystems
       inextricables-nix-nixpkgs
+      inextricables-install-home-manager
     ];
   systemGenesis = args:
     (inputs.nixpkgs.lib.nixosSystem ((builtins.removeAttrs args [ "hostName" ])
